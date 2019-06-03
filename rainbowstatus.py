@@ -6,6 +6,7 @@ token = 'YOUR TOKEN HERE'
 def change_status(token):
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) discord/0.0.305 Chrome/69.0.3497.128 Electron/4.0.8 Safari/537.36', 'Authorization': token}
 
+    # Not adding delay between requests because the requests take time to execute anyway. However if you want, you can modify and add delaying yourself.
     requests.patch('https://discordapp.com/api/v6/users/@me/settings', json=json.loads(json.dumps({'status': 'online'})), headers=headers)
     requests.patch('https://discordapp.com/api/v6/users/@me/settings', json=json.loads(json.dumps({'status': 'idle'})), headers=headers)
     requests.patch('https://discordapp.com/api/v6/users/@me/settings', json=json.loads(json.dumps({'status': 'dnd'})), headers=headers)
